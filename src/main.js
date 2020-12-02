@@ -9,17 +9,21 @@ Vue.use(elementUI)
 
 import { registerMicroApps, start } from 'qiankun'
 
+const isPro = process.env.NODE_ENV === 'production'
+const entry = isPro ? '//8.129.230.32:8081/vue/' : '//192.168.0.69:9000/vue/'
+
 const apps = [
   {
-    name: 'vueApp',
-    entry: '//localhost:9000',
+    name: 'vue',
+    entry,
     container: '#vue',
-    activeRule: '/vue',
+    activeRule: '/parent/vue',
     props: { a: 1 }
   }
 ]
 console.log(__webpack_public_path__)
 registerMicroApps(apps)
+// start()
 start({ prefetch: false, strictStyleIsolation: true })
 // Vue.config.productionTip = false
 

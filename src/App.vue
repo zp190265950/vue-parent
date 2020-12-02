@@ -15,6 +15,15 @@ export default {
     return {
       activeIndex: '/'
     }
+  },
+  watch: {
+    // $route: {
+    //   handler () {
+    //     console.log(this.$route)
+    //     this.activeIndex = this.$route.path
+    //   }, 
+    //   immediate: true
+    // }
   }
 }
 </script>
