@@ -8,9 +8,6 @@ module.exports = {
   devServer: {
     port: 8080 // 本地启动的端口号
   },
-  configureWebpack: config => {
-    config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
-  },
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       console.log(process.env.NODE_ENV)
