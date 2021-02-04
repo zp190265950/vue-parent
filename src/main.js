@@ -7,7 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(elementUI)
 
-import { registerMicroApps, start } from 'qiankun'
+import { registerMicroApps, start, setDefaultMountApp } from 'qiankun'
 
 const isPro = process.env.NODE_ENV === 'production'
 const entry = isPro ? '//8.129.230.32:8081/vue/' : '//192.168.0.36:9000/vue/'
@@ -24,8 +24,9 @@ const apps = [
 console.log(__webpack_public_path__)
 registerMicroApps(apps)
 // start()
-start({ prefetch: false, strictStyleIsolation: true })
-// Vue.config.productionTip = false
+start({ prefetch: true, strictStyleIsolation: true })
+Vue.config.productionTip = false
+setDefaultMountApp('/parent/vue')
 
 new Vue({
   router,
