@@ -10,7 +10,7 @@ Vue.use(elementUI)
 import { registerMicroApps, start } from 'qiankun'
 
 const isPro = process.env.NODE_ENV === 'production'
-const entry = isPro ? '//8.129.230.32:8081/vue/' : '//192.168.0.69:9000/vue/'
+const entry = isPro ? '//8.129.230.32:8081/vue/' : '//192.168.0.36:9000/vue/'
 
 const apps = [
   {

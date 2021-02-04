@@ -17,13 +17,15 @@ export default {
     }
   },
   watch: {
-    // $route: {
-    //   handler () {
-    //     console.log(this.$route)
-    //     this.activeIndex = this.$route.path
-    //   }, 
-    //   immediate: true
-    // }
+    $route: {
+      handler () {
+        console.log(this.$route)
+        const path = this.$route.path
+        console.log(path.split('/'))
+        this.activeIndex = `/` + path.split('/')[1]
+      }, 
+      immediate: true
+    }
   }
 }
 </script>
