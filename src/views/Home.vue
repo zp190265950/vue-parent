@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld
+      msg="Welcome to Your Vue.js App"
+      :info="info"/>
     <el-tooltip
       popper-class="tooltip-width"
       placement="top">
@@ -14,7 +16,7 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld-1.vue'
 import Info from './../components/Info'
 
 export default {
@@ -25,7 +27,9 @@ export default {
   },
   data () {
     return {
-
+      info: {
+        age: 20
+      }
     }
   },
   computed: {

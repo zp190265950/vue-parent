@@ -8,28 +8,32 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
-    <virtual-list
-      style="height: 400px; overflow-y: auto;"
-      :data-key="'id'"
-      :data-sources="items"
-      :keeps="50"
-      :estimate-size="20"
-      :data-component="itemComponent">
-      <!-- <div>{{item.id + '   ' + item.name}}</div> -->
-    </virtual-list>
+    <RecycleScroller
+      style="height: 420px; overflow-y: auto;"
+      :item-size="25"
+      key-field="id"
+      :items="items"
+      v-slot="{ item }">
+      <div>{{item.id + '   ' + item.name}}</div>
+    </RecycleScroller>
   </div>
 </template>
 
 <script>
-import VirtualList from 'vue-virtual-scroll-list'
-import Item from './Item'
+// import VirtualList from 'vue-virtual-scroller'
+// import Item from './Item'
+
+import "vue-virtual-scroller/dist/vue-virtual-scroller.css"
+import Vue from 'vue'
+import VueVirtualScroller from "vue-virtual-scroller";
  
-// Vue.use(VueVirtualScroller)
+Vue.use(VueVirtualScroller)
 
 export default {
   name: 'HelloWorld',
   components: {
-    VirtualList
+    // VirtualList,
+    // Item
   },
   props: {
     msg: String,
