@@ -3,9 +3,11 @@
     <el-menu :default-active="activeIndex" mode="horizontal" router>
       <el-menu-item index="/">基础的</el-menu-item>
       <el-menu-item index="/vue">vue</el-menu-item>
+      <el-menu-item index="/paper">paper</el-menu-item>
     </el-menu>
     <router-view/>
     <div id="vue"></div>
+    <div id="paper"></div>
   </div>
 </template>
 

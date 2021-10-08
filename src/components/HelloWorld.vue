@@ -10,7 +10,7 @@
     </p>
     <virtual-list
       style="height: 400px; overflow-y: auto;"
-      :data-key="'id'"
+      data-key="id"
       :data-sources="items"
       :keeps="50"
       :estimate-size="20"

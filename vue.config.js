@@ -6,7 +6,23 @@ module.exports = {
   outputDir: 'dist', // 输出文件名称
   assetsDir: 'static', // 输出静态文件放置的文件夹
   devServer: {
-    port: 8080 // 本地启动的端口号
+    port: 8080, // 本地启动的端口号
+    proxy: {
+      /**
+       * target: 'http://192.168.0.44:60139/', 肖文本地
+       * target: 'http://192.168.0.41:63100/', 邓诗龙本地
+       * target: 'http://192.168.0.53:9999/, 开发环境
+       */
+      // 测试 http://test.local.yjzhixue.com/
+      // 开发 http://dev.local.yjzhixue.com/
+      '/api/': {
+        target: 'http://dev.local.yjzhixue.com/api/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/': '/'
+        }
+      }
+    }
   },
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {

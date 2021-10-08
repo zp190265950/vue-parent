@@ -10,21 +10,29 @@ Vue.use(elementUI)
 import { registerMicroApps, start } from 'qiankun'
 
 const isPro = process.env.NODE_ENV === 'production'
-const entry = isPro ? '//8.129.230.32:8081/vue/' : '//192.168.0.36:9000/vue/'
+// const entry = isPro ? '//8.129.230.32:8081/vue/' : '//192.168.0.119:8081/vue/'
+const entryPaper = isPro ? 'asdf' : '//192.168.0.119:8050/paper-generation/'
 
 const apps = [
   {
-    name: 'vue',
-    entry,
-    container: '#vue',
-    activeRule: '/parent/vue',
+    name: 'paper',
+    entry: entryPaper,
+    container: '#paper',
+    activeRule: '/parent/paper',
     props: { a: 1 }
   }
+  // {
+  //   name: 'paper-generation',
+  //   entry: entryPaper,
+  //   container: '#paper-generation',
+  //   activeRule: '/parent/paper-generation',
+  //   props: { a: 1 }
+  // }
 ]
 console.log(__webpack_public_path__)
 registerMicroApps(apps)
-// start()
-start({ prefetch: true, strictStyleIsolation: true })
+start()
+// start({ prefetch: true, strictStyleIsolation: true })
 Vue.config.productionTip = false
 
 new Vue({
